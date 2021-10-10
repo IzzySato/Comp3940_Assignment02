@@ -1,0 +1,28 @@
+Unzip the aop zip file and copy the folder to c:\temp and then run the following command:
+java –javaagent:c:\temp\aop\aspectj\lib\aspectjweaver.jar -classpath .;c:\temp\aop\aspectj\lib\aspectjrt.jar;c:\temp\aop\aspectj\lib\aspectjweaver.jar HelloWorld
+
+Otherwise perform the following steps:
+1.  create c:/temp/aop as well as c:/temp/aop/aspectj folder.  
+    you can name the folders differently but make sure that the changes are consistent.
+2.  copy aspectj jar file into c:/temp/aop folder and install it into c:/temp/aop/aspectj folder by typing the following command and chosing the folder appropriately.
+        java -jar aspectj-1.9.6.jar   
+3.  copy the HelloWorld.java and BasicAspect.java into c:/temp/aop folder.  
+    compile the two files by typing the following at the command window:  
+    cd c:\temp\aop
+    javac –classpath .;c:\temp\aop\aspectj\lib\aspectjrt.jar;c:\temp\aop\aspectj\lib\aspectjweaver.jar BasicAspect.java HelloWorld.java
+4.  create c:\temp\aop\com\example\aspects and move the BasicAspect.class into this folder
+5.  create c:\temp\aop\META-INF folder and copy aop.xml in that folder.  
+6.  On the command window type the following:
+    cd c:\temp\aop
+    java –javaagent:c:\temp\aop\aspectj\lib\aspectjweaver.jar -classpath .;c:\temp\aop\aspectj\lib\aspectjrt.jar;c:\temp\aop\aspectj\lib\aspectjweaver.jar HelloWorld
+
+    You will see the following output:
+
+    About to make call to print Hello World 
+    Hello World 
+    Just made call to print Hello World
+
+reference:
+The AOP example is derived from the following link.
+http://www.andrewewhite.net/wordpress/2010/03/17/aspectj-annotation-tutorial/
+
