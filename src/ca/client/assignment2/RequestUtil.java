@@ -1,5 +1,7 @@
 package ca.client.assignment2;
 
+import java.nio.file.InvalidPathException;
+
 public class RequestUtil {
     private static final int GET_SPACER = 4;
     private static final String GET = "GET ";
@@ -7,7 +9,7 @@ public class RequestUtil {
     private static final String USER = "User-Agent: ";
     private static final int USER_SPACER = 12;
     private static final int START_SPACER = 7;
-
+//
     public static String getPath(String request) {
         int start = request.indexOf(GET) + GET_SPACER;
         int end = request.indexOf(HTTP);
@@ -20,5 +22,15 @@ public class RequestUtil {
         request = request.substring(start, start + START_SPACER);
         return request;
     }
+
+//    public static String getPath(String request) throws InvalidPathException {
+//        int start = request.indexOf(GET) + GET_SPACER;
+//        int end = request.indexOf(HTTP);
+//        request = request.substring(start, end);
+//        if (request.equals("")) {
+//            throw new InvalidPathException("");
+//        }
+//        return request;
+//    }
 
 }
