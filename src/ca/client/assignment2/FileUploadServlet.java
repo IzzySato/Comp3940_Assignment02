@@ -5,6 +5,8 @@ import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.Clock;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class FileUploadServlet extends HttpServlet{
     private static final String TEMPLATE_TOP = "<!DOCTYPE html>\n" +
@@ -77,6 +79,7 @@ public class FileUploadServlet extends HttpServlet{
     }
 
     private String getAsHTML( String[] files ) {
+        files = Arrays.stream(files).sorted().toArray(String[]::new);
         StringBuilder sb = new StringBuilder();
         sb.append(TEMPLATE_TOP);
         sb.append("<h2>Files</h2>");
